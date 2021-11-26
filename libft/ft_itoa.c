@@ -6,7 +6,7 @@
 /*   By: oabdelfa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 10:09:42 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/11 18:36:48 by oabdelfa         ###   ########.fr       */
+/*   Updated: 2021/11/19 14:23:26 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,31 @@ static int	len(long nb)
 	return (len);
 }
 
-char	*ft_itoa(int nb)
+char	*ft_itoa(int n)
 {
 	char	*str;
-	long	n;
+	long	nb;
 	int		i;
 
-	n = nb;
-	i = len(n);
+	nb = n;
+	i = len(nb);
+	if (n == 0)
+		i = 1;
 	str = (char *) malloc(sizeof(char) * i + 1);
 	if (!str)
 		return (NULL);
 	str[i--] = '\0';
-	if (n == 0)
+	if (nb == 0)
 		str[0] = 48;
-	if (n < 0)
+	if (nb < 0)
 	{
 		str[0] = '-';
-		n = n * -1;
+		nb = nb * -1;
 	}
-	while (n > 0)
+	while (nb > 0)
 	{
-		str[i--] = 48 + (n % 10);
-		n = n / 10;
+		str[i--] = 48 + (nb % 10);
+		nb = nb / 10;
 	}
 	return (str);
 }

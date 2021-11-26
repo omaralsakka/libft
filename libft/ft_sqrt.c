@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelfa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 15:50:22 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/10 13:42:48 by oabdelfa         ###   ########.fr       */
+/*   Created: 2021/10/27 18:22:29 by oabdelfa          #+#    #+#             */
+/*   Updated: 2021/10/27 18:55:44 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalpha(int c)
+int	ft_sqrt(int nb)
 {
-	if ((c >= 65 && c <= 90))
-		return (1);
-	else if ((c >= 97 && c <= 122))
-		return (1);
+	int	temp;
+
+	temp = 1;
+	while (temp <= nb / 2)
+	{
+		if ((temp * temp) == nb)
+			return (temp);
+		else
+			temp++;
+	}
 	return (0);
 }

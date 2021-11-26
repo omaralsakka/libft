@@ -6,7 +6,7 @@
 /*   By: omarfido <omarfido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 10:58:20 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/15 11:30:36 by oabdelfa         ###   ########.fr       */
+/*   Updated: 2021/11/19 14:46:13 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,16 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int		ft_isspace(const char c);
 t_list	*ft_lstnew(void const *content, size_t content_size);
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void	ft_lstadd(t_list **alst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+int		ft_isspace(const char c);
 void	ft_free(void *str, size_t len);
+void	*ft_free_array(void **array, size_t size);
+int		ft_sqrt(int nb);
 
 #endif

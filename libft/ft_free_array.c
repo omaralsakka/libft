@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_free_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelfa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 15:50:22 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/10 13:42:48 by oabdelfa         ###   ########.fr       */
+/*   Created: 2021/11/19 14:28:06 by oabdelfa          #+#    #+#             */
+/*   Updated: 2021/11/19 14:28:46 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	*ft_free_array(void **array, size_t size)
 {
-	if ((c >= 65 && c <= 90))
-		return (1);
-	else if ((c >= 97 && c <= 122))
-		return (1);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (i < size)
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+	return (NULL);
 }

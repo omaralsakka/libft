@@ -6,7 +6,7 @@
 /*   By: oabdelfa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 13:22:10 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/15 11:31:07 by oabdelfa         ###   ########.fr       */
+/*   Updated: 2021/11/18 11:50:44 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char		*temp;
 	size_t				i;
 
+	if (!dst && !src && len > 0)
+		return (dst);
 	i = 0;
 	s = src;
 	d = dst;

@@ -6,7 +6,7 @@
 /*   By: oabdelfa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 16:47:04 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/11 18:53:50 by oabdelfa         ###   ########.fr       */
+/*   Updated: 2021/11/19 15:35:42 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
+	t_list	*head;
 	t_list	*temp;
 
 	if (!alst || !del)
 		return ;
-	temp = *alst;
-	while (temp)
+	head = *alst;
+	while (head)
 	{
-		ft_lstdelone(&temp, del);
-		temp = temp->next;
+		temp = head->next;
+		ft_lstdelone(&head, del);
+		head = temp;
 	}
+	*alst = NULL;
 }

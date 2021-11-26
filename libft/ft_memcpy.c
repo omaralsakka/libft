@@ -6,7 +6,7 @@
 /*   By: oabdelfa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 11:56:09 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/12 16:35:46 by oabdelfa         ###   ########.fr       */
+/*   Updated: 2021/11/18 11:48:55 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	const char	*s;
 	char		*d;
 
+	if (!dest && !src && n > 0)
+		return (dest);
 	s = src;
 	d = dest;
 	while (n)
