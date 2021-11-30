@@ -6,7 +6,7 @@
 /*   By: oabdelfa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 14:55:44 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/11 18:20:07 by oabdelfa         ###   ########.fr       */
+/*   Updated: 2021/11/23 11:54:16 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s || !f)
 		return (NULL);
 	i = 0;
-	res = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (res == NULL)
+	res = ft_strnew(ft_strlen(s));
+	if (!res)
 		return (NULL);
 	while (s[i])
 	{

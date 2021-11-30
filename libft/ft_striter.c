@@ -6,7 +6,7 @@
 /*   By: oabdelfa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 14:44:18 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/11 18:15:16 by oabdelfa         ###   ########.fr       */
+/*   Updated: 2021/11/23 11:51:17 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	unsigned int	i;
-
-	i = 0;
 	if (!s || !f)
 		return ;
-	while (s[i])
+	while (*s)
 	{
-		f(&s[i]);
-		i++;
+		f(s);
+		s++;
 	}
 }

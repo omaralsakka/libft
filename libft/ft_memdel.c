@@ -6,7 +6,7 @@
 /*   By: oabdelfa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:39:08 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/11 18:02:55 by oabdelfa         ###   ########.fr       */
+/*   Updated: 2021/11/23 11:44:40 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 void	ft_memdel(void **ap)
 {
-	if (!ap)
-		return ;
-	if (*ap != NULL)
+	if (ap)
 	{
 		free(*ap);
 		*ap = NULL;

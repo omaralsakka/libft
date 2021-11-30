@@ -19,7 +19,7 @@ void	*ft_free_array(void **array, size_t size)
 	i = 0;
 	while (i < size)
 	{
-		free(array[i]);
+		ft_free(array[i], ft_strlen(array[i]));
 		i++;
 	}
 	free(array);

@@ -6,14 +6,14 @@
 /*   By: oabdelfa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:26:53 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/19 15:43:33 by oabdelfa         ###   ########.fr       */
+/*   Updated: 2021/11/23 11:35:10 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	ft_wordcount(char const *s, char c)
-{
+{	
 	int	res;
 	int	i;
 
@@ -21,12 +21,8 @@ static int	ft_wordcount(char const *s, char c)
 	res = 0;
 	while (s[i])
 	{
-		if (s[i] != c && s[i])
-		{
-			res += 1;
-			while (s[i] != c && s[i])
-				i++;
-		}
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
+			res++;
 		i++;
 	}
 	return (res);
@@ -69,6 +65,7 @@ static char	**ft_assignwords(char	**res, char const *s, char c, int wrdcnt)
 				res[b][i++] = s[a++];
 			res[b][i] = '\0';
 			b++;
+			a--;
 		}
 		i = 0;
 		a++;
@@ -91,11 +88,3 @@ char	**ft_strsplit(char const *s, char c)
 	res[wrdcnt] = 0;
 	return (res);
 }
-/*
-int	main()
-{
-	char *s = "                  olol";
-	char **result = ft_strsplit(s, ' ');
-	printf("%s\n", result[0]);
-}
-*/
