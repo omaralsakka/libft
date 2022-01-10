@@ -31,7 +31,7 @@ static int	ft_wordlen(char const *s)
 	return (len);
 }
 
-static int	ft_lencheck(int	e,	int s)
+static int	ft_lencheck(int e, int s)
 {
 	int	len;
 

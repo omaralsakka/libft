@@ -23,5 +23,6 @@ void	*ft_free_array(void **array, size_t size)
 		i++;
 	}
 	free(array);
+	array = NULL;
 	return (NULL);
 }

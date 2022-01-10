@@ -12,79 +12,80 @@
 
 #include "libft.h"
 
-static int	ft_wordcount(char const *s, char c)
-{	
-	int	res;
+static int	ft_strlenc(char *str, char c)
+{
+	int		length;
+
+	length = 0;
+	while (*str != '\0' && *str != c)
+	{
+		length++;
+		str++;
+	}
+	return (length);
+}
+
+static int	wordcnt(char *str, char c)
+{
+	int	word_count;
 	int	i;
 
+	word_count = 0;
 	i = 0;
-	res = 0;
-	while (s[i])
+	if (str[0] != c)
+		word_count++;
+	while (str[i] != '\0')
 	{
-		if (s[i] != c && (i == 0 || s[i - 1] == c))
-			res++;
+		if (str[i] != c && str[i - 1] == c)
+			word_count++;
 		i++;
 	}
-	return (res);
+	return (word_count);
 }
 
-static int	ft_len(char const *s, int i, char c)
+static char	**ft_split(char **dest, char *str, char c)
 {
-	int	res;
+	int	i;
+	int	word;
+	int	len;
 
-	if (!s)
-		return (0);
-	res = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i] && s[i] != c)
-	{
-		i++;
-		res++;
-	}
-	return (res);
-}
-
-static char	**ft_assignwords(char	**res, char const *s, char c, int wrdcnt)
-{
-	int		a;
-	int		b;
-	int		i;
-
-	a = 0;
-	b = 0;
 	i = 0;
-	while (s[a])
+	word = 0;
+	while (str[i] != '\0')
 	{
-		if (s[a] != c)
+		if (str[i] == c)
+			i++;
+		else
 		{
-			res[b] = (char *) malloc(sizeof(char) * ft_len(s, a, c) + 1);
-			if (!res[b])
-				return (((char **)ft_free_array((void **)res, wrdcnt)));
-			while (s[a] != c && s[a])
-				res[b][i++] = s[a++];
-			res[b][i] = '\0';
-			b++;
-			a--;
+			len = ft_strlenc(&str[i], c);
+			dest[word] = (char *)malloc(sizeof(char) * (len + 1));
+			if (!dest[word])
+				return (ft_free_array((void **)dest, (size_t)word));
+			ft_strncpy(dest[word], &str[i], len);
+			dest[word][len] = '\0';
+			word++;
+			i += len;
 		}
-		i = 0;
-		a++;
 	}
-	return (res);
+	dest[word] = 0;
+	return (dest);
 }
 
 char	**ft_strsplit(char const *s, char c)
 {
-	int		wrdcnt;
-	char	**res;
+	char	**dest;
+	char	*str;
+	int		word_count;
 
-	if (!s)
-		return (NULL);
-	wrdcnt = ft_wordcount(s, c);
-	res = (char **) malloc(sizeof(char *) * wrdcnt + 1);
-	if (!res)
-		return (NULL);
-	res = ft_assignwords(res, s, c, wrdcnt);
-	res[wrdcnt] = 0;
-	return (res);
+	str = (char *)s;
+	dest = NULL;
+	if (s)
+	{
+		word_count = wordcnt(str, c);
+		dest = (char **)malloc(sizeof(char *) * (word_count + 1));
+		if (!dest)
+			return (NULL);
+		ft_split(dest, str, c);
+	}
+	return (dest);
 }
