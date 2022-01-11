@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strlenc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelfa <oabdelfa@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 12:59:19 by oabdelfa          #+#    #+#             */
-/*   Updated: 2022/01/11 10:37:07 by oabdelfa         ###   ########.fr       */
+/*   Created: 2022/01/11 10:55:24 by oabdelfa          #+#    #+#             */
+/*   Updated: 2022/01/11 10:57:24 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+size_t	ft_strlenc(char *str, char c)
 {
-	char	*str;
+	int i;
 
-	str = (char *)malloc(sizeof(char) * size + 1);
-	if (!str)
-		return (NULL);
-	ft_bzero((void *)str, size + 1);
-	return (str);
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	return (i);
 }

@@ -3,27 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oabdelfa <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oabdelfa <oabdelfa@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:26:53 by oabdelfa          #+#    #+#             */
-/*   Updated: 2021/11/23 11:35:10 by oabdelfa         ###   ########.fr       */
+/*   Updated: 2022/01/11 11:05:04 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_strlenc(char *str, char c)
-{
-	int		length;
-
-	length = 0;
-	while (*str != '\0' && *str != c)
-	{
-		length++;
-		str++;
-	}
-	return (length);
-}
 
 static int	wordcnt(char *str, char c)
 {
@@ -34,7 +21,7 @@ static int	wordcnt(char *str, char c)
 	i = 0;
 	if (str[0] != c)
 		word_count++;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if (str[i] != c && str[i - 1] == c)
 			word_count++;
@@ -45,13 +32,13 @@ static int	wordcnt(char *str, char c)
 
 static char	**ft_split(char **dest, char *str, char c)
 {
-	int	i;
-	int	word;
-	int	len;
+	int		i;
+	int		word;
+	size_t	len;
 
 	i = 0;
 	word = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if (str[i] == c)
 			i++;
