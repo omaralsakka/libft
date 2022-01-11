@@ -6,7 +6,7 @@
 #    By: oabdelfa <oabdelfa@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 14:08:26 by oabdelfa          #+#    #+#              #
-#    Updated: 2022/01/11 11:04:14 by oabdelfa         ###   ########.fr        #
+#    Updated: 2022/01/11 11:31:42 by oabdelfa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ ft_isspace.c ft_free.c ft_free_array.c ft_sqrt.c ft_strlenc.c
 
 OBJ = $(SRC:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror -include libft.h -c 
+FLAGS = -Wall -Wextra -Werror -I includes -c
 
 
 $(NAME):
