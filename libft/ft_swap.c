@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlenc.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oabdelfa <oabdelfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 10:55:24 by oabdelfa          #+#    #+#             */
-/*   Updated: 2022/01/25 14:34:37 by oabdelfa         ###   ########.fr       */
+/*   Created: 2022/01/20 12:10:32 by oabdelfa          #+#    #+#             */
+/*   Updated: 2022/01/20 12:12:46 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlenc(char *str, char c)
+void	ft_swap(int *a, int *b)
 {
-	int	i;
+	int	tmp;
 
-	i = 0;
-	while (str[i] && str[i] != c)
-		i++;
-	return (i);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

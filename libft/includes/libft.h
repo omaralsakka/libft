@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oabdelfa <oabdelfa@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: oabdelfa <oabdelfa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 10:58:20 by oabdelfa          #+#    #+#             */
-/*   Updated: 2022/01/11 10:57:36 by oabdelfa         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:13:58 by oabdelfa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include "get_next_line.h"
 
 typedef struct s_list
 {
@@ -68,6 +69,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
 char	**ft_strsplit(char const *s, char c);
+void	ft_swap(int *a, int *b);
 char	*ft_itoa(int nb);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
